@@ -25,7 +25,7 @@ services:
 
   phpmyadmin:
     container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin:5.2.3-fpm-alpine
+    image: phpmyadmin/phpmyadmin:5.2.3
     networks:
       - caddynet
     ports:
