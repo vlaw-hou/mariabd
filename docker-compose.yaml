@@ -10,10 +10,10 @@ services:
     ports:
       - "127.0.0.1:3306:3306"
     environment:
-      MARIADB_DATABASE: my_database
-      MARIADB_ROOT_PASSWORD: secure_root_password
-      MARIADB_USER: my_user
-      MARIADB_USER_PASSWORD: secure_user_password
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
     volumes:
       - /opt/vps3/vps3-data/db-mariad/db-data:/var/lib/mysql
     restart: unless-stopped
@@ -32,8 +32,7 @@ services:
       - "127.0.0.1:8113:80"
     environment:
       PMA_HOST: mariadb
-      PMA_PORT: 3306
-    
+      PMA_PORT: 3306    
     restart: unless-stopped
     depends_on:
       mariadb:
